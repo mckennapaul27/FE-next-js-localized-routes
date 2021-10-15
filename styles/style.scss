@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+$navbar-background-color: #2b5a86;
+$navbar-item-color: #ffff;
+$navbar-padding-horizontal: 2rem;
+
+$dropdown-menu-min-width: 1rem;
+
+body {
+    background-color: lightgray;
+}
+.navbar {
+    padding: 1rem 2rem;
+}
+.content {
+    background-color: #ffff;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+@import '../node_modules/bulma/bulma.sass';
