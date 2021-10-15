@@ -1,17 +1,20 @@
 import LocaleSwitch from './locale-switch';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar({ pageContext, global }) {
+    const [active, toggleActive] = useState(false);
     return (
         <>
             <nav
-                className='navbar'
+                className='navbar active'
                 role='navigation'
                 aria-label='main navigation'>
                 <div className='navbar-brand'>
                     <a
+                        onClick={() => toggleActive(!active)}
                         role='button'
-                        className='navbar-burger'
+                        className={`navbar-burger ${active && 'is-active'}`}
                         data-target='navbarBasic'
                         aria-label='menu'
                         aria-expanded='false'>
@@ -21,7 +24,9 @@ export default function Navbar({ pageContext, global }) {
                     </a>
                 </div>
 
-                <div id='navbarBasic' className='navbar-menu'>
+                <div
+                    id='navbarBasic'
+                    className={`navbar-menu ${active && 'is-active'}`}>
                     <div className='navbar-start'>
                         {global.navbar.links.map((link) => (
                             <Link
